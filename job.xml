@@ -1,23 +1,24 @@
 <joblist>
     <type name="技术">
-        <job pinyin="shujuwajue">数据挖掘</job>
-        <job pinyin="Java">Java</job>
-        <job pinyin="PHP">PHP</job>
-        <job pinyin="C">C</job>
-        <job pinyin="C++">C++</job>
-        <job pinyin="Python">Python</job>
-        <job pinyin=".NET">.NET</job>
-        <job pinyin="C%23">C#</job>
-        <job pinyin="Hadoop">Hadoop</job>
-        <job pinyin="Node.js">Node.js</job>
-        <job pinyin="ziranyuyanchuli">自然语言处理</job>
-        <job pinyin="sousuosuanfa">搜索算法</job>
-        <job pinyin="jingzhuntuijian">精准推荐</job>
-        <job pinyin="quanzhangongchengshi">全栈工程师</job>
-        <job pinyin="HTML5">HTML5</job>
-        <job pinyin="Android">Android</job>
-        <job pinyin="iOS">iOS</job>
-        <job pinyin="webqianduan">Web前端</job>
+        <!--<job pinyin="shujuwajue">数据挖掘</job>-->
+        <!--<job pinyin="Java">Java</job>-->
+        <!--<job pinyin="PHP">PHP</job>-->
+        <!--<job pinyin="C">C</job>-->
+        <!--<job pinyin="C++">C++</job>-->
+        <!--<job pinyin="Python">Python</job>-->
+        <!--<job pinyin=".NET">.NET</job>-->
+        <!--<job pinyin="C%23">C#</job>-->
+        <!--<job pinyin="Hadoop">Hadoop</job>-->
+        <!--<job pinyin="Node.js">Node.js</job>-->
+        <!--<job pinyin="ziranyuyanchuli">自然语言处理</job>-->
+        <!--<job pinyin="sousuosuanfa">搜索算法</job>-->
+        <!--<job pinyin="jingzhuntuijian">精准推荐</job>-->
+        <!--<job pinyin="quanzhangongchengshi">全栈工程师</job>-->
+        <!--<job pinyin="HTML5">HTML5</job>-->
+        <!--<job pinyin="Android">Android</job>-->
+        <!--<job pinyin="iOS">iOS</job>-->
+        <!--<job pinyin="qianduankaifa">前端开发</job>-->
+        <job pinyin="VR">虚拟现实</job>
     </type>
 
 </joblist>
