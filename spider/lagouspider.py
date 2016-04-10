@@ -1,6 +1,7 @@
-import requests
-import json
 import os
+
+import requests
+
 from util import toolkit
 
 req_url = 'http://www.lagou.com/jobs/positionAjax.json?'
@@ -47,5 +48,5 @@ if __name__ == '__main__':
 
     for item, value in configmap.items():
         for job in value:
-            print('start crawl ' + str(job.pinyin) + ' ...')
-            scrapy(job.pinyin)
+            print('start crawl ' + str(job.parameter) + ' ...')
+            scrapy(job.parameter)

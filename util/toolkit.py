@@ -10,7 +10,7 @@ def readconfig(configpath):
         jobtype = jobs.get('name')
         joblist = list()
         for job in jobs:
-            job_obj = Job(job.text, job.get('pinyin'))
+            job_obj = Job(job.text, job.get('parameter'))
             joblist.append(job_obj)
         configmap[jobtype] = joblist
     return configmap
@@ -27,12 +27,3 @@ def normalize(value):
         result = int(value.split('k')[0]) * 1000
 
     return result
-
-
-if __name__ == '__main__':
-    mapjobconfig = readconfig('D:/Users/XuLu/PycharmProjects/LagouJob/job.xml')
-
-    for item, value in mapjobconfig.items():
-        print(item, end=' : ')
-        for each_item in value:
-            print(each_item.name + '--' + each_item.pinyin, end='\t')

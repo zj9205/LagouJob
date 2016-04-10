@@ -1,7 +1,7 @@
 class Job:
-    def __init__(self, name, pinyin):
+    def __init__(self, name, parameter):
         self.name = name
-        self.pinyin = pinyin
+        self.parameter = parameter
 
     @property
     def name(self):

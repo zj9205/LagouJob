@@ -1,9 +1,9 @@
-import openpyxl
-import os
 import json
-from util import toolkit
+import os
 
 from openpyxl import Workbook
+
+from util import toolkit
 
 
 def json_to_list(job_type_json_dir):
@@ -58,9 +58,17 @@ def write_excel(lists, filename):
             ws.cell(row=rownum, column=14).value = toolkit.normalize(each_job_info_obj['salary'])
             rownum += 1
     wb.save('d:/' + filename + '.xlsx')
-    print('Excel数据生成成功!')
+    print('Excel生成成功!')
 
+def process(json_file_path):
+    if os.path.exists(json_file_path):
+        dir_list = os.listdir(json_file_path)
+        for each_dir in dir_list:
+            print(json_file_path + os.path.sep + each_dir)
+            lists = json_to_list(json_file_path + os.path.sep + each_dir)
+            write_excel(lists, each_dir)
 
 if __name__ == '__main__':
-    lists = json_to_list('D:/LagouJobInfo/lagou/VR')
-    write_excel(lists, '虚拟现实')
+    print('start generating Excel file...')
+    process('D:\LagouJobInfo\技术')
+    print('Done! Please check your result...')
