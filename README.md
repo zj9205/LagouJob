@@ -16,4 +16,4 @@
 
 3. 运行 __lagouspider.py__ 获取拉勾网json数据
 
-4. 运行 __excelhelper.py__ 生成没份职业对应的Excel
+4. 运行 __excelhelper.py__ 生成每份职业对应的Excel
