@@ -1,8 +1,8 @@
-from bs4 import BeautifulSoup
-import requests
-import jieba
-from openpyxl import load_workbook
 import os
+
+import requests
+from bs4 import BeautifulSoup
+from openpyxl import load_workbook
 
 
 def get_detail_info_byid(job_id, outputfolder):
@@ -20,12 +20,14 @@ def get_detail_info_byid(job_id, outputfolder):
     job_bt_soup = html_soup.find('dd', class_='job_bt')
 
     # 加载用户自定义词典
-    jieba.load_userdict('C:/Users/XuLu/PycharmProjects/LagouJob/userdict.txt')
+    # jieba.load_userdict('C:/Users/XuLu/PycharmProjects/LagouJob/userdict.txt')
+
+    # 加载停用词
+    # jieba.analyse.set_stop_words('C:/Users/XuLu/PycharmProjects/LagouJob/stopwords.txt')
 
     # 这里是为了防止请求已失效的职位数据
     if job_bt_soup is not None:
-        word_list = jieba.cut_for_search(job_bt_soup.text, False)
-        str_txt = "| ".join(word_list)
+        str_txt = job_bt_soup.text
         print(str_txt)
 
         result_txt_path = outputfolder + os.sep + job_id + '.txt'
@@ -50,8 +52,8 @@ def get_jobid_list(job_excel_file_path):
 
 
 if __name__ == '__main__':
-    job_id_list = get_jobid_list('D:/数据挖掘.xlsx')
+    job_id_list = get_jobid_list('D:/精准推荐.xlsx')
     outputdir = 'd:/'
 
     for each_job_id in job_id_list:
-        get_detail_info_byid(each_job_id, 'd:/worddir')
+        get_detail_info_byid(each_job_id, 'd:/recommendersys')
