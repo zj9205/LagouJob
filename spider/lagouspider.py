@@ -44,7 +44,7 @@ def scrapy(jobname):
 
 
 if __name__ == '__main__':
-    configmap = toolkit.readconfig('D:/Users/PythonProject/LagouJob/job.xml')
+    configmap = toolkit.readconfig('C:/Users/XuLu/PycharmProjects/LagouJob/job.xml')
 
     for item, value in configmap.items():
         for job in value:

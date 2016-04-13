@@ -70,5 +70,5 @@ def process(json_file_path):
 
 if __name__ == '__main__':
     print('start generating Excel file...')
-    process('D:\LagouJobInfo\技术')
+    process('D:/LagouJobInfo/lagou')
     print('Done! Please check your result...')
