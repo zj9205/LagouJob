@@ -52,8 +52,8 @@ def get_jobid_list(job_excel_file_path):
 
 
 if __name__ == '__main__':
-    job_id_list = get_jobid_list('D:/精准推荐.xlsx')
+    job_id_list = get_jobid_list('D:/VR.xlsx')
     outputdir = 'd:/'
 
     for each_job_id in job_id_list:
-        get_detail_info_byid(each_job_id, 'd:/recommendersys')
+        get_detail_info_byid(each_job_id, 'D:/LagouJobInfo/lagou/details/vr')

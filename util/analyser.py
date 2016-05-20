@@ -31,6 +31,6 @@ def get_content(txtdir):
 
 
 if __name__ == '__main__':
-    content_txt = get_content('D:/datamining')
+    content_txt = get_content('D:/LagouJobInfo/details/vr')
     analyse(content_txt, 'C:/Users/XuLu/PycharmProjects/LagouJob/stopwords.txt',
             'C:/Users/XuLu/PycharmProjects/LagouJob/userdict.txt')

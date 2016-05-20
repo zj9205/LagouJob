@@ -11,7 +11,7 @@ headers = {'content-type': 'application/json;charset=UTF-8'}
 def scrapy(jobname):
     maxpagenum = \
         requests.post(req_url, params={'first': 'false', 'pn': 1, 'kd': jobname}, headers=headers).json()['content'][
-            'totalPageCount']
+            'positionResult']['totalCount']
 
     flag = True
     num = 1
@@ -29,7 +29,7 @@ def scrapy(jobname):
             flag = False
 
         if response.status_code == 200:
-            job_json = response.json()['content']['result']
+            job_json = response.json()['content']['positionResult']['result']
             print(job_json)
 
             with open('D:/LagouJobInfo/lagou/' + jobname + '/' + str(num) + '.json', 'wt', encoding='utf-8') as f:
