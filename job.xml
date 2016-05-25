@@ -10,7 +10,7 @@
         <!--<job parameter="HTML5">HTML5</job>-->
         <!--<job parameter="Android">Android</job>-->
         <!--<job parameter="iOS">iOS</job>-->
-        <job parameter="VR">VR</job>
+        <job parameter="运营">运营</job>
         <!--<job parameter="架构师">架构师</job>-->
     </type>
 

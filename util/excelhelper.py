@@ -1,9 +1,12 @@
 import json
 import os
+import logging
 
 from openpyxl import Workbook
 
 from util import toolkit
+
+logging.basicConfig(filename='info.log', level=logging.DEBUG)
 
 
 def json_to_list(job_type_json_dir):
@@ -12,7 +15,9 @@ def json_to_list(job_type_json_dir):
         with open(job_type_json_dir + '/' + each_json, 'r', encoding='utf-8') as f:
             for each_line in f.readlines():
                 json_content = '{"joblist":' + each_line + '}'
-                json_obj = json.loads(json_content.replace("'", '"').replace('None', 'null').replace('False', 'false'))
+                json_obj = json.loads(
+                    json_content.replace("\'", '\"').replace('None', 'null').replace('False', 'false'),
+                    encoding='utf-8')
                 job_type_lists.append(json_obj)
 
     return job_type_lists
@@ -58,7 +63,8 @@ def write_excel(lists, filename):
             ws.cell(row=rownum, column=14).value = toolkit.normalize(each_job_info_obj['salary'])
             rownum += 1
     wb.save('d:/' + filename + '.xlsx')
-    print('Excel生成成功!')
+    logging.info('Excel生成成功!')
+
 
 def process(json_file_path):
     if os.path.exists(json_file_path):
@@ -68,7 +74,8 @@ def process(json_file_path):
             lists = json_to_list(json_file_path + os.path.sep + each_dir)
             write_excel(lists, each_dir)
 
+
 if __name__ == '__main__':
-    print('start generating Excel file...')
+    logging.info('start generating Excel file...')
     process('D:/LagouJobInfo/lagou')
-    print('Done! Please check your result...')
+    logging.info('Done! Please check your result...')
