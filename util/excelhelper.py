@@ -1,6 +1,7 @@
 import json
 import os
 import logging
+import ast
 
 from openpyxl import Workbook
 
@@ -14,10 +15,14 @@ def json_to_list(job_type_json_dir):
     for each_json in os.listdir(job_type_json_dir):
         with open(job_type_json_dir + '/' + each_json, 'r', encoding='utf-8') as f:
             for each_line in f.readlines():
-                json_content = '{"joblist":' + each_line + '}'
-                json_obj = json.loads(
-                    json_content.replace("\'", '\"').replace('None', 'null').replace('False', 'false'),
-                    encoding='utf-8')
+                json_content = "{'joblist':" + each_line + "}"
+                st_json_str = json_content.replace("\'", '\"').replace('None', 'null').replace('False', 'false')
+                # st_json_str = ast.literal_eval(json_content)
+                print(st_json_str)
+                try:
+                    json_obj = json.loads(st_json_str)
+                except:
+                    pass
                 job_type_lists.append(json_obj)
 
     return job_type_lists
