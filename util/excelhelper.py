@@ -37,7 +37,7 @@ def write_excel(lists, filename):
     ws.cell(row=1, column=3).value = '职位名称'
     ws.cell(row=1, column=4).value = '职位ID'
     ws.cell(row=1, column=5).value = '公司ID'
-    ws.cell(row=1, column=6).value = '职位类型'
+    ws.cell(row=1, column=6).value = '职位诱惑'
     ws.cell(row=1, column=7).value = '公司名称'
     ws.cell(row=1, column=8).value = '所在城市'
     ws.cell(row=1, column=9).value = '文化程度'
@@ -57,8 +57,8 @@ def write_excel(lists, filename):
             ws.cell(row=rownum, column=3).value = each_job_info_obj['positionName']
             ws.cell(row=rownum, column=4).value = each_job_info_obj['positionId']
             ws.cell(row=rownum, column=5).value = each_job_info_obj['companyId']
-            ws.cell(row=rownum, column=6).value = each_job_info_obj['positionType']
-            ws.cell(row=rownum, column=7).value = each_job_info_obj['companyName']
+            ws.cell(row=rownum, column=6).value = each_job_info_obj['positionAdvantage']
+            ws.cell(row=rownum, column=7).value = each_job_info_obj['companyFullName']
             ws.cell(row=rownum, column=8).value = each_job_info_obj['city']
             ws.cell(row=rownum, column=9).value = each_job_info_obj['education']
             ws.cell(row=rownum, column=10).value = each_job_info_obj['industryField']
