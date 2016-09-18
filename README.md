@@ -8,7 +8,7 @@
 
 2. data analysis and visualize
 
-3. crawl job details info and generate word cloud called __Job Impression__
+3. crawl job details info and generate word cloud as __Job Impression__
 
 
 ###Install Prerequisition
@@ -22,7 +22,7 @@
 ###Basic Usage
 1. clone this project from [github](https://github.com/EclipseXuLu/LagouJob.git)
 
-2. change the path of __job.xml__ in lagouspider.py
+2. change the path of __job.xml__ in lagouspider.py readconfig() method
     
     configmap = toolkit.readconfig('D:/Users/PythonProject/LagouJob/job.xml')
     

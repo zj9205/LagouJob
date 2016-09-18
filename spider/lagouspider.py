@@ -5,20 +5,19 @@ import requests
 
 from util import toolkit
 
-req_url = 'http://www.lagou.com/jobs/positionAjax.json?'
-headers = {
-    'content-type': 'application/json;charset=UTF-8',
-    'Accept-Encoding': 'gzip, deflate',
-    'Host': 'www.lagou.com',
-    'Origin': 'http://www.lagou.com',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36',
-    'X-Requested-With': 'XMLHttpRequest',
-    'X-Anit-Forge-Code': 0,
-    'X-Anit-Forge-Token': None
-}
-
 
 def scrapy(jobname):
+    req_url = 'http://www.lagou.com/jobs/positionAjax.json?'
+    headers = {
+        'content-type': 'application/json;charset=UTF-8',
+        'Accept-Encoding': 'gzip, deflate',
+        'Host': 'www.lagou.com',
+        'Origin': 'http://www.lagou.com',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-Anit-Forge-Code': 0,
+        'X-Anit-Forge-Token': None
+    }
     maxpagenum = \
         int(requests.post(req_url, params={'first': 'false', 'pn': 1, 'kd': jobname}, headers=headers).json()[
                 'content']['positionResult']['totalCount']) / 15
