@@ -1,4 +1,5 @@
 import os
+import time
 
 import requests
 
@@ -6,7 +7,14 @@ from util import toolkit
 
 req_url = 'http://www.lagou.com/jobs/positionAjax.json?'
 headers = {
-    'content-type': 'application/json;charset=UTF-8'
+    'content-type': 'application/json;charset=UTF-8',
+    'Accept-Encoding': 'gzip, deflate',
+    'Host': 'www.lagou.com',
+    'Origin': 'http://www.lagou.com',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36',
+    'X-Requested-With': 'XMLHttpRequest',
+    'X-Anit-Forge-Code': 0,
+    'X-Anit-Forge-Token': None
 }
 
 
@@ -35,7 +43,8 @@ def scrapy(jobname):
             print('正在爬取第 ' + str(num) + ' 页的数据...')
             print(job_json)
 
-            with open('D:/LagouJobInfo/lagou/' + jobname + '/' + str(num) + '.json', 'wt', encoding='utf-8') as f:
+            with open('D:/LagouJobInfo/lagou/' + jobname + os.path.sep + str(num) + '.json', 'wt',
+                      encoding='utf-8') as f:
                 f.write(str(job_json))
                 f.flush()
                 f.close()
@@ -44,10 +53,11 @@ def scrapy(jobname):
             print('connect error! url = ' + req_url)
 
         num += 1
+        time.sleep(2)
 
 
 if __name__ == '__main__':
-    configmap = toolkit.readconfig('D:/Users/LucasX/PycharmProjects/LagouJob/job.xml')
+    configmap = toolkit.readconfig('D:/Users/PythonProject/LagouJob/job.xml')
 
     for item, value in configmap.items():
         for job in value:
