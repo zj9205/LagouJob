@@ -5,7 +5,9 @@ import requests
 from util import toolkit
 
 req_url = 'http://www.lagou.com/jobs/positionAjax.json?'
-headers = {'content-type': 'application/json;charset=UTF-8'}
+headers = {
+    'content-type': 'application/json;charset=UTF-8'
+}
 
 
 def scrapy(jobname):
