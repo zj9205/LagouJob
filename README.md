@@ -1,6 +1,9 @@
 # LagouJob
 ## data analysis of Lagou
 
+###Here are the results
+[知乎回答](https://www.zhihu.com/question/36132174/answer/94392659)
+
 ![LagouIcon](http://pstatic.lagou.com/www/static/common/widgets/header_c/modules/img/logo_d0915a9.png)
 ###Main Function
 
