@@ -21,9 +21,8 @@
 1. clone this project from [github](https://github.com/EclipseXuLu/LagouJob.git)
 
 2. change the path of __job.xml__ in lagouspider.py readconfig() method
-    '''
-    configmap = toolkit.readconfig('D:/Users/PythonProject/LagouJob/job.xml')
-    '''
+   configmap = toolkit.readconfig(__YourLocalPath__)
+    
 3. run __lagouspider.py__ to get job data in JSON
 
 4. run __excelhelper.py__ to generate every Excel file towards each job
