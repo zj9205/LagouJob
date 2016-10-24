@@ -81,5 +81,5 @@ def process(json_file_path):
 
 if __name__ == '__main__':
     logging.info('start generating Excel file...')
-    process('D:/LagouJobInfo/lagou')
+    process('D:/LagouJobInfo')
     logging.info('Done! Please check your result...')
