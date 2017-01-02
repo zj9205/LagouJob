@@ -9,6 +9,19 @@
 3. crawl job details info and generate word cloud as __Job Impression__
 
 
+###Note
+Because lagou's back-end API has been changed, this repository may not work well.
+
+I will try to fix these problems and publish __V2.0__ in the near future.
+
+THX for your star and watching!
+
+I will try my best to make it better and more robust with more new features as well!
+
+Sorry for the inconvenience it may bring!
+
+__V2.0_ALPHA__ is developing ~
+
 ###Install Prerequisition
 1. Python Version >= 3.4
 2. Third Party Library: 
