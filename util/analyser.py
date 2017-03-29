@@ -11,7 +11,7 @@ def analyse(strcontent, stopwordspath, userdictpath):
 
     # 带词频
     for tag in tags:
-        print(tag[0] + ' : ' + str(tag[1]))
+        print(tag[0] + ',' + str(tag[1]))
     print('===========================')
     # 不带词频，仅用于生成TagCloud的...
     for tag in tags:
@@ -31,6 +31,6 @@ def get_content(txtdir):
 
 
 if __name__ == '__main__':
-    content_txt = get_content('D:/datamining')
-    analyse(content_txt, 'C:/Users/XuLu/PycharmProjects/LagouJob/stopwords.txt',
-            'C:/Users/XuLu/PycharmProjects/LagouJob/userdict.txt')
+    content_txt = get_content('D:/LagouJobInfo/lagou/details/计算机视觉')
+    analyse(content_txt, 'D:/Users/LucasX/PycharmProjects/LagouJob/stopwords.txt',
+            'D:/Users/LucasX/PycharmProjects/LagouJob/userdict.txt')

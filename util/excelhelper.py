@@ -1,9 +1,12 @@
 import json
+import logging
 import os
 
 from openpyxl import Workbook
 
 from util import toolkit
+
+logging.basicConfig(filename='info.log', level=logging.DEBUG)
 
 
 def json_to_list(job_type_json_dir):
@@ -11,8 +14,14 @@ def json_to_list(job_type_json_dir):
     for each_json in os.listdir(job_type_json_dir):
         with open(job_type_json_dir + '/' + each_json, 'r', encoding='utf-8') as f:
             for each_line in f.readlines():
-                json_content = '{"joblist":' + each_line + '}'
-                json_obj = json.loads(json_content.replace("'", '"').replace('None', 'null').replace('False', 'false'))
+                json_content = "{'joblist':" + each_line + "}"
+                st_json_str = json_content.replace("\'", '\"').replace('None', 'null').replace('False', 'false')
+                # st_json_str = ast.literal_eval(json_content)
+                print(st_json_str)
+                try:
+                    json_obj = json.loads(st_json_str)
+                except:
+                    pass
                 job_type_lists.append(json_obj)
 
     return job_type_lists
@@ -27,7 +36,7 @@ def write_excel(lists, filename):
     ws.cell(row=1, column=3).value = '职位名称'
     ws.cell(row=1, column=4).value = '职位ID'
     ws.cell(row=1, column=5).value = '公司ID'
-    ws.cell(row=1, column=6).value = '职位类型'
+    ws.cell(row=1, column=6).value = '职位诱惑'
     ws.cell(row=1, column=7).value = '公司名称'
     ws.cell(row=1, column=8).value = '所在城市'
     ws.cell(row=1, column=9).value = '文化程度'
@@ -47,8 +56,8 @@ def write_excel(lists, filename):
             ws.cell(row=rownum, column=3).value = each_job_info_obj['positionName']
             ws.cell(row=rownum, column=4).value = each_job_info_obj['positionId']
             ws.cell(row=rownum, column=5).value = each_job_info_obj['companyId']
-            ws.cell(row=rownum, column=6).value = each_job_info_obj['positionType']
-            ws.cell(row=rownum, column=7).value = each_job_info_obj['companyName']
+            ws.cell(row=rownum, column=6).value = each_job_info_obj['positionAdvantage']
+            ws.cell(row=rownum, column=7).value = each_job_info_obj['companyFullName']
             ws.cell(row=rownum, column=8).value = each_job_info_obj['city']
             ws.cell(row=rownum, column=9).value = each_job_info_obj['education']
             ws.cell(row=rownum, column=10).value = each_job_info_obj['industryField']
@@ -58,7 +67,8 @@ def write_excel(lists, filename):
             ws.cell(row=rownum, column=14).value = toolkit.normalize(each_job_info_obj['salary'])
             rownum += 1
     wb.save('d:/' + filename + '.xlsx')
-    print('Excel生成成功!')
+    logging.info('Excel生成成功!')
+
 
 def process(json_file_path):
     if os.path.exists(json_file_path):
@@ -68,7 +78,8 @@ def process(json_file_path):
             lists = json_to_list(json_file_path + os.path.sep + each_dir)
             write_excel(lists, each_dir)
 
+
 if __name__ == '__main__':
-    print('start generating Excel file...')
-    process('D:/LagouJobInfo/lagou')
-    print('Done! Please check your result...')
+    logging.info('start generating Excel file...')
+    process('D:/LagouJobInfo')
+    logging.info('Done! Please check your result...')
